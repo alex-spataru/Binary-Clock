@@ -1,0 +1,15 @@
+<RCC>
+    <qresource prefix="/qml">
+        <file>main.qml</file>
+        <file>Ads.qml</file>
+        <file>UI.qml</file>
+        <file>Assets/Digit.qml</file>
+        <file>Assets/Dot.qml</file>
+        <file>Clocks/BcdClock.qml</file>
+        <file>Clocks/BinaryClock.qml</file>
+        <file>Gradients/UiGradientStop.qml</file>
+        <file>Gradients/GradientGenerator.qml</file>
+        <file>Clocks/AnalogClock.qml</file>
+        <file>Clocks/DigitalClock.qml</file>
+    </qresource>
+</RCC>

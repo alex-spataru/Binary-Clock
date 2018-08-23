@@ -1,0 +1,9 @@
+<RCC>
+    <qresource prefix="/js">
+        <file>BcdClock.js</file>
+        <file>BinaryClock.js</file>
+        <file>Global.js</file>
+        <file>AnalogClock.js</file>
+        <file>DigitalClock.js</file>
+    </qresource>
+</RCC>

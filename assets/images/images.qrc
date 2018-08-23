@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/images">
+        <file>clock.svg</file>
+        <file>timer.svg</file>
+        <file>more.svg</file>
+    </qresource>
+</RCC>
