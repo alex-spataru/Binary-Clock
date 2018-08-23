@@ -3,13 +3,24 @@
         <file>main.qml</file>
         <file>Ads.qml</file>
         <file>UI.qml</file>
-        <file>Assets/Digit.qml</file>
-        <file>Assets/Dot.qml</file>
-        <file>Clocks/BcdClock.qml</file>
-        <file>Clocks/BinaryClock.qml</file>
-        <file>Gradients/UiGradientStop.qml</file>
-        <file>Gradients/GradientGenerator.qml</file>
-        <file>Clocks/AnalogClock.qml</file>
-        <file>Clocks/DigitalClock.qml</file>
+        <file>Sensors/Accelerometer.qml</file>
+        <file>Sensors/Altimeter.qml</file>
+        <file>Sensors/AmbientLight.qml</file>
+        <file>Sensors/AmbientTemperature.qml</file>
+        <file>Sensors/Clock.qml</file>
+        <file>Sensors/Compass.qml</file>
+        <file>Sensors/DistanceSensor.qml</file>
+        <file>Sensors/Gyroscope.qml</file>
+        <file>Sensors/InfraredProximity.qml</file>
+        <file>Sensors/LightSensor.qml</file>
+        <file>Sensors/Magnetometer.qml</file>
+        <file>Sensors/Orientation.qml</file>
+        <file>Sensors/Pressure.qml</file>
+        <file>Sensors/Proximity.qml</file>
+        <file>Sensors/Rotation.qml</file>
+        <file>Sensors/Taps.qml</file>
+        <file>Sensors/Tilt.qml</file>
+        <file>Components/DrawerItem.qml</file>
+        <file>Components/PageDrawer.qml</file>
     </qresource>
 </RCC>

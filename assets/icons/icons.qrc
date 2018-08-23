@@ -1,0 +1,24 @@
+<RCC>
+    <qresource prefix="/icons">
+        <file>more.svg</file>
+        <file>menu.svg</file>
+        <file>sensors/tilt.svg</file>
+        <file>sensors/taps.svg</file>
+        <file>sensors/rotation.svg</file>
+        <file>sensors/proximity.svg</file>
+        <file>sensors/pressure.svg</file>
+        <file>sensors/orientation.svg</file>
+        <file>sensors/magnetometer.svg</file>
+        <file>sensors/ir_proximity.svg</file>
+        <file>sensors/gyroscope.svg</file>
+        <file>sensors/distance_sensor.svg</file>
+        <file>sensors/compass.svg</file>
+        <file>sensors/clock.svg</file>
+        <file>sensors/ambient_temperature.svg</file>
+        <file>sensors/ambient_light.svg</file>
+        <file>sensors/altimeter.svg</file>
+        <file>sensors/accelerometer.svg</file>
+        <file>sensors/light_sensor.svg</file>
+        <file>love.svg</file>
+    </qresource>
+</RCC>

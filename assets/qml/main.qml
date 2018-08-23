@@ -35,17 +35,22 @@ ApplicationWindow {
     //
     width: 320
     height: 480
-    visible: true
+    visible: false
 
     //
     // Theme options
     //
-    color: "#303030"
+    color: "#202020"
     Material.accent: "#f84"
-    Material.primary: "#f84"
-    Material.background: "#303030"
-    Material.theme: Material.Dark
-    Universal.theme: Universal.Dark
+    Material.primary: "#303030"
+    Material.theme: Material.Light
+    Universal.theme: Universal.Light
+
+    //
+    // Decrease stack depth before closing the application.
+    // This allows the Android user to use the back button to navigate the UI
+    //
+    onClosing: close.accepted = ui.checkStackDepth()
 
     //
     // Force use of roboto font
@@ -60,54 +65,28 @@ ApplicationWindow {
     }
 
     //
-    // Loader for all the UI items
+    // All the UI controls
     //
-    Loader {
-        id: loader
-        opacity: 0
-        asynchronous: true
-        anchors.fill: parent
+    UI {
+        id: ui
+        onFinishedLoading: app.visible = true
 
-        //
-        // Fade-in animation to beautify our fucked up loading process
-        //
-        Behavior on opacity {
-            NumberAnimation {
-                duration: 500
-                easing.type: Easing.OutQuad
-            }
+        anchors {
+            fill: parent
+            bottomMargin: ads.height
         }
+    }
 
-        //
-        // UI items
-        //
-        sourceComponent: Item {
-            anchors.fill: parent
+    //
+    // Ads (yay!)
+    //
+    Ads {
+        id: ads
 
-            //
-            // All the UI controls
-            //
-            UI {
-                onFinishedLoading: loader.opacity = 1
-
-                anchors {
-                    fill: parent
-                    bottomMargin: ads.height
-                }
-            }
-
-            //
-            // Ads (yay!)
-            //
-            Ads {
-                id: ads
-
-                anchors {
-                    left: parent.left
-                    right: parent.right
-                    bottom: parent.bottom
-                }
-            }
+        anchors {
+            left: parent.left
+            right: parent.right
+            bottom: parent.bottom
         }
     }
 }

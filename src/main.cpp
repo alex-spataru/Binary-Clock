@@ -26,7 +26,7 @@
 #include <QQmlApplicationEngine>
 
 #include "shareutils.h"
-#include "UiGradients.h"
+#include "AppInfo.h"
 #include "QtAdMobBanner.h"
 
 #ifdef Q_OS_ANDROID
@@ -35,10 +35,10 @@
 
 int main (int argc, char** argv) {
     // Set application options
-    QGuiApplication::setApplicationVersion ("0.1");
-    QGuiApplication::setApplicationName ("QClock");
-    QGuiApplication::setOrganizationName ("Alex Spataru");
-    QGuiApplication::setApplicationDisplayName ("QClock");
+    QGuiApplication::setApplicationName (APP_NAME);
+    QGuiApplication::setOrganizationName (APP_DEVELOPER);
+    QGuiApplication::setApplicationVersion (APP_VERSION);
+    QGuiApplication::setApplicationDisplayName (APP_NAME);
     QGuiApplication::setAttribute (Qt::AA_EnableHighDpiScaling);
 
     // Init. application
@@ -57,16 +57,16 @@ int main (int argc, char** argv) {
 
     // Declare QML modules
     ShareUtils::DeclareQML();
-    UiGradients::DeclareQML();
     QmlAdMobBanner::DeclareQML();
     QQuickStyle::setStyle ("Material");
 
-    // Init. QML modules
-    UiGradients gradients;
-
     // Init. QML interface
     QQmlApplicationEngine engine;
-    engine.rootContext()->setContextProperty ("Gradients", &gradients);
+    engine.rootContext()->setContextProperty ("AppName", APP_NAME);
+    engine.rootContext()->setContextProperty ("AppVersion", APP_VERSION);
+    engine.rootContext()->setContextProperty ("AppDeveloper", APP_DEVELOPER);
+    engine.rootContext()->setContextProperty ("AdBannerId", ADS_BANNER_ID);
+    engine.rootContext()->setContextProperty ("AdsEnabled", ADS_ENABLED);
     engine.load (QUrl (QStringLiteral ("qrc:/qml/main.qml")));
 
     // QML error, quit application

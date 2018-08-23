@@ -105,30 +105,13 @@ RESOURCES += \
     $$PWD/assets/js/js.qrc \
     $$PWD/assets/qml/qml.qrc \
     $$PWD/assets/fonts/fonts.qrc \
-    $$PWD/assets/gradients/gradients.qrc \
-    assets/images/images.qrc
+    $$PWD/assets/icons/icons.qrc
 
 #-------------------------------------------------------------------------------
 # Import source code
 #-------------------------------------------------------------------------------
 
-SOURCES += \
-    $$PWD/src/main.cpp \
-    $$PWD/src/UiGradients.cpp
+SOURCES += $$PWD/src/main.cpp
 
 HEADERS += \
-    $$PWD/src/UiGradients.h
-
-DISTFILES += \
-    $$PWD/assets/js/BcdClock.js \
-    $$PWD/assets/js/BinaryClock.js \
-    $$PWD/assets/js/Global.js \
-    $$PWD/assets/qml/$$PWD/assets/Digit.qml \
-    $$PWD/assets/qml/$$PWD/assets/Dot.qml \
-    $$PWD/assets/qml/Clocks/BcdClock.qml \
-    $$PWD/assets/qml/Clocks/BinaryClock.qml \
-    $$PWD/assets/qml/Gradients/GradientGenerator.qml \
-    $$PWD/assets/qml/Gradients/UiGradientStop.qml \
-    $$PWD/assets/qml/Ads.qml \
-    $$PWD/assets/qml/main.qml \
-    $$PWD/assets/qml/UI.qml
+    src/AppInfo.h
