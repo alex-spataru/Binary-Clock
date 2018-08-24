@@ -126,7 +126,7 @@ function drawBackground (ctx) {
 
     /* Set line properties */
     ctx.lineCap = "round"
-    ctx.strokeStyle = Qt.rgba (1, 1, 1, 0.85)
+    ctx.strokeStyle = "#606060"
 
     /* Set shadow properties */
     ctx.shadowBlur = 12
@@ -134,7 +134,7 @@ function drawBackground (ctx) {
 
     /* Draw circle background */
     ctx.beginPath()
-    ctx.fillStyle = Qt.rgba (0.19, 0.19, 0.19, 0.4)
+    ctx.fillStyle = "#303030"
     ctx.arc (centerX, centerY, radius - 4, 0, 2 * Math.PI, true)
     ctx.fill()
 

@@ -76,10 +76,20 @@ Page {
     //
     // Toolbar
     //
-    header: ToolBar {
+    ToolBar {
+        z: 1
+        id: toolbar
         height: 56
         Material.foreground: "#fff"
         Material.background: Material.primary
+
+        anchors {
+            top: parent.top
+            left: parent.left
+            right: parent.right
+            leftMargin: -2
+            rightMargin: -2
+        }
 
         RowLayout {
             spacing: 3/2 * Global.spacing
@@ -156,7 +166,7 @@ Page {
     // Drawer with application name and available pages
     //
     Components.PageDrawer {
-        z: 1
+        z: 0
         id: drawer
         iconTitle: AppName
         iconBgColorLeft: "#241"
@@ -297,8 +307,11 @@ Page {
     //
     Loader {
         asynchronous: true
-        anchors.fill: parent
-        anchors.centerIn: parent
+
+        anchors {
+            fill: parent
+            topMargin: toolbar.height
+        }
 
         StackView {
             z: 2
