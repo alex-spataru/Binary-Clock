@@ -20,5 +20,6 @@
         <file>sensors/accelerometer.svg</file>
         <file>sensors/light_sensor.svg</file>
         <file>love.svg</file>
+        <file>logo.svg</file>
     </qresource>
 </RCC>

@@ -74,11 +74,19 @@ Page {
     }
 
     //
+    // Set background color
+    //
+    background: Rectangle {
+        color: Global.backgroundColor
+    }
+
+    //
     // Toolbar
     //
     ToolBar {
-        z: 1
         id: toolbar
+
+        z: 1
         height: 56
         Material.foreground: "#fff"
         Material.background: Material.primary
@@ -169,9 +177,10 @@ Page {
         z: 0
         id: drawer
         iconTitle: AppName
-        iconBgColorLeft: "#241"
-        iconBgColorRight: "#482"
-        iconSource: "qrc:/icons/sensors/altimeter.svg"
+        iconBgColorLeft: Global.accentColor
+        iconBgColorRight: Global.secondaryAccentColor
+        //Material.theme: Material.Light
+        iconSource: "qrc:/icons/logo.svg"
         iconSubtitle: qsTr ("Version %1").arg (AppVersion)
         iconSubSubtitle: qsTr ("Developed by %1").arg (AppDeveloper)
         height: AdsEnabled ? app.height - Global.bannerHeight - 1 : app.height
@@ -310,7 +319,7 @@ Page {
 
         anchors {
             fill: parent
-            topMargin: toolbar.height
+            topMargin: toolbar.height - 2
         }
 
         StackView {

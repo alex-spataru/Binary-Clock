@@ -30,6 +30,7 @@
 #include "QtAdMobBanner.h"
 
 #ifdef Q_OS_ANDROID
+#include <QColor>
 #include <QtAndroid>
 #endif
 
@@ -51,7 +52,7 @@ int main (int argc, char** argv) {
                     "getWindow", "()Landroid/view/Window;");
         window.callMethod<void>("addFlags", "(I)V", 0x80000000);
         window.callMethod<void>("clearFlags", "(I)V", 0x04000000);
-        window.callMethod<void>("setStatusBarColor", "(I)V", QColor("#262626").rgba());
+        window.callMethod<void>("setStatusBarColor", "(I)V", QColor("#202126").rgba());
     });
 #endif
 

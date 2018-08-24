@@ -40,11 +40,12 @@ ApplicationWindow {
     //
     // Theme options
     //
-    color: "#202020"
-    Material.accent: "#f84"
-    Material.primary: "#303030"
-    Material.theme: Material.Light
+    color: Global.backgroundColor
+    Material.theme: Material.Dark
     Universal.theme: Universal.Light
+    Material.accent: Global.accentColor
+    Material.background: Global.backgroundColor
+    Material.primary: Global.lightBackgroundColor
 
     //
     // Decrease stack depth before closing the application.

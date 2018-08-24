@@ -76,6 +76,8 @@ ios {
 }
 
 android {
+    android:QT += androidextras gui-private
+
     DISTFILES += \
         deploy/android/AndroidManifest.xml \
         deploy/android/gradle/wrapper/gradle-wrapper.jar \
@@ -105,13 +107,39 @@ RESOURCES += \
     $$PWD/assets/js/js.qrc \
     $$PWD/assets/qml/qml.qrc \
     $$PWD/assets/fonts/fonts.qrc \
-    $$PWD/assets/icons/icons.qrc
+    $$PWD/assets/icons/icons.qrc \
+    assets/js/js.qrc \
+    assets/qml/qml.qrc
 
 #-------------------------------------------------------------------------------
 # Import source code
 #-------------------------------------------------------------------------------
 
 SOURCES += $$PWD/src/main.cpp
+HEADERS += $$PWD/src/AppInfo.h
 
-HEADERS += \
-    src/AppInfo.h
+DISTFILES += \
+    assets/js/AnalogClock.js \
+    assets/js/Global.js \
+    assets/qml/Components/DrawerItem.qml \
+    assets/qml/Components/PageDrawer.qml \
+    assets/qml/Sensors/Accelerometer.qml \
+    assets/qml/Sensors/Altimeter.qml \
+    assets/qml/Sensors/AmbientLight.qml \
+    assets/qml/Sensors/AmbientTemperature.qml \
+    assets/qml/Sensors/Clock.qml \
+    assets/qml/Sensors/Compass.qml \
+    assets/qml/Sensors/DistanceSensor.qml \
+    assets/qml/Sensors/Gyroscope.qml \
+    assets/qml/Sensors/InfraredProximity.qml \
+    assets/qml/Sensors/LightSensor.qml \
+    assets/qml/Sensors/Magnetometer.qml \
+    assets/qml/Sensors/Orientation.qml \
+    assets/qml/Sensors/Pressure.qml \
+    assets/qml/Sensors/Proximity.qml \
+    assets/qml/Sensors/Rotation.qml \
+    assets/qml/Sensors/Taps.qml \
+    assets/qml/Sensors/Tilt.qml \
+    assets/qml/Ads.qml \
+    assets/qml/main.qml \
+    assets/qml/UI.qml

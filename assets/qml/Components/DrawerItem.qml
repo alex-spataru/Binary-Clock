@@ -10,6 +10,22 @@ ItemDelegate {
     enabled: !isSpacer (index) && !isSeparator (index)
 
     //
+    // Change background color
+    //
+    background: Rectangle {
+        anchors.fill: parent
+        color: highlighted || mouseArea.containsMouse ? Material.primary : "transparent"
+
+        MouseArea {
+            id: mouseArea
+            hoverEnabled: true
+            anchors.fill: parent
+            preventStealing: false
+            acceptedButtons: Qt.RightButton
+        }
+    }
+
+    //
     // Alias to parent list view
     //
     property ListModel model

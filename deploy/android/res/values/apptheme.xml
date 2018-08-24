@@ -2,7 +2,7 @@
 <resources>
     <style name="AppTheme" parent="@android:style/Theme.DeviceDefault.Light.NoActionBar">
         <item name="android:windowBackground">@drawable/splash</item>
-        <item name="android:statusBarColor">#262626</item>
-        <item name="android:colorPrimary">#202020</item>
+        <item name="android:statusBarColor">#202126</item>
+        <item name="android:colorPrimary">#202126</item>
     </style>
 </resources> 

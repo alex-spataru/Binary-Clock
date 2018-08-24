@@ -62,7 +62,7 @@ function drawHandles (ctx) {
     /* Set line properties */
     ctx.lineWidth = 3
     ctx.lineCap = "round"
-    ctx.strokeStyle = Qt.rgba (1, 1, 1, 0.85)
+    ctx.strokeStyle = "#fff"
 
     /* Draw hour handle */
     ctx.beginPath()
@@ -83,7 +83,7 @@ function drawHandles (ctx) {
     /* Draw seconds handle */
     ctx.beginPath()
     ctx.lineWidth = 2
-    ctx.strokeStyle = Qt.rgba (1.00, 0.53, 0.26, 0.85)
+    ctx.strokeStyle = "#c35057"
     ctx.moveTo (centerX - xComponent (secAngle, secHandleSize / 5),
                 centerY - yComponent (secAngle, secHandleSize / 5))
     ctx.lineTo (centerX + xComponent (secAngle, secHandleSize),
@@ -126,7 +126,7 @@ function drawBackground (ctx) {
 
     /* Set line properties */
     ctx.lineCap = "round"
-    ctx.strokeStyle = "#606060"
+    ctx.strokeStyle = "#aaaaae"
 
     /* Set shadow properties */
     ctx.shadowBlur = 12
@@ -134,7 +134,7 @@ function drawBackground (ctx) {
 
     /* Draw circle background */
     ctx.beginPath()
-    ctx.fillStyle = "#303030"
+    ctx.fillStyle = "#282830"
     ctx.arc (centerX, centerY, radius - 4, 0, 2 * Math.PI, true)
     ctx.fill()
 

@@ -36,6 +36,14 @@ var extraLargeLabel = 24;
 var isMobile = Qt.platform === "android";
 
 //
+// Colors
+//
+var accentColor = "#c35057";
+var secondaryAccentColor = "#f6a60f";
+var backgroundColor = "#202126";
+var lightBackgroundColor = "#282830";
+
+//
 //
 //
 function rateApplication() {

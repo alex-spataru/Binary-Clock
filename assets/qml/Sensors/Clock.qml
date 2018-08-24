@@ -54,14 +54,6 @@ Item {
     property int seconds: -1
 
     //
-    // Background rectangle
-    //
-    Rectangle {
-        color: "#202020"
-        anchors.fill: parent
-    }
-
-    //
     // UI arrangement
     //
     Column {
