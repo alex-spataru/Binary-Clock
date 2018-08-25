@@ -21,31 +21,52 @@
  */
 
 import QtQuick 2.0
+import QtQuick.Layouts 1.0
 import QtQuick.Controls 2.0
 import QtQuick.Controls.Material 2.0
 import QtQuick.Controls.Universal 2.0
 
-import "qrc:/js/Global.js" as Global
-
 ApplicationWindow {
     id: app
+
+    //
+    // Constants
+    //
+    readonly property int spacing: 8
+    readonly property int smallLabel: 12
+    readonly property int largeLabel: 22
+    readonly property int mediumLabel: 18
+    readonly property int normalLabel: 16
+    readonly property int extraSmallLabel: 10
+    readonly property int extraLargeLabel: 24
+    readonly property string accentColor: "#c35057"
+    readonly property string backgroundColor: "#202126"
+    readonly property string secondaryAccentColor: "#f6a60f"
+    readonly property string lightBackgroundColor: "#282830"
+    readonly property bool isMobile: Qt.platform === "android"
+
+    //
+    // UI loading variables
+    //
+    property var ui: undefined
+    property bool uiLoaded: false
 
     //
     // Window options
     //
     width: 320
     height: 480
-    visible: false
+    visible: true
 
     //
     // Theme options
     //
-    color: Global.backgroundColor
+    color: backgroundColor
     Material.theme: Material.Dark
     Universal.theme: Universal.Light
-    Material.accent: Global.accentColor
-    Material.background: Global.backgroundColor
-    Material.primary: Global.lightBackgroundColor
+    Material.accent: accentColor
+    Material.background: backgroundColor
+    Material.primary: lightBackgroundColor
 
     //
     // Decrease stack depth before closing the application.
@@ -66,28 +87,43 @@ ApplicationWindow {
     }
 
     //
-    // All the UI controls
+    // Main UI of the application
     //
-    UI {
-        id: ui
-        onFinishedLoading: app.visible = true
+    ColumnLayout {
+        spacing: 0
+        anchors.fill: parent
 
-        anchors {
-            fill: parent
-            bottomMargin: ads.height
+        opacity: uiLoaded ? 1 : 0
+        Behavior on opacity { NumberAnimation {} }
+
+        //
+        // UI loader
+        //
+        Loader {
+            id: uiLoader
+            asynchronous: true
+            Layout.fillWidth: true
+            Layout.fillHeight: true
+            onLoaded: app.uiLoaded = true
+
+            sourceComponent: UI {
+                anchors.fill: parent
+                Component.onCompleted: app.ui = this
+            }
         }
-    }
 
-    //
-    // Ads (yay!)
-    //
-    Ads {
-        id: ads
+        //
+        // Ad manager
+        //
+        Ads {
+            id: adsManager
+            enabled: uiLoaded
+            Layout.fillWidth: true
+            Layout.minimumHeight: uiLoaded ? adHeight : 0
+            Layout.maximumHeight: uiLoaded ? adHeight : 0
 
-        anchors {
-            left: parent.left
-            right: parent.right
-            bottom: parent.bottom
+            Behavior on Layout.maximumHeight { NumberAnimation {} }
+            Behavior on Layout.minimumHeight { NumberAnimation {} }
         }
     }
 }

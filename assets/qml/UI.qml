@@ -27,15 +27,9 @@ import QtQuick.Controls.Material 2.0
 
 import "Sensors" as Sensors
 import "Components" as Components
-import "qrc:/js/Global.js" as Global
 
 Page {
     id: ui
-
-    //
-    // Used to show the UI when all is loaded
-    //
-    signal finishedLoading
 
     //
     // Aliases
@@ -77,7 +71,7 @@ Page {
     // Set background color
     //
     background: Rectangle {
-        color: Global.backgroundColor
+        color: app.backgroundColor
     }
 
     //
@@ -100,13 +94,13 @@ Page {
         }
 
         RowLayout {
-            spacing: 3/2 * Global.spacing
+            spacing: 3/2 * app.spacing
 
             anchors {
                 fill: parent
-                margins: Global.spacing
-                leftMargin: 3/2 * Global.spacing
-                rightMargin: 3/2 * Global.spacing
+                margins: app.spacing
+                leftMargin: 3/2 * app.spacing
+                rightMargin: 3/2 * app.spacing
             }
 
             Image {
@@ -122,7 +116,7 @@ Page {
             Label {
                 id: toolbarText
                 font.weight: Font.Medium
-                font.pixelSize: Global.mediumLabel
+                font.pixelSize: app.mediumLabel
             }
 
             Item {
@@ -145,24 +139,24 @@ Page {
 
                     MenuItem {
                         text: qsTr ("Rate")
-                        onClicked: Global.rateApplication()
+                        onClicked: app.rateApplication()
                     }
 
                     MenuItem {
                         text: qsTr ("Report Bug")
-                        onClicked: Global.reportBug()
+                        onClicked: app.reportBug()
                     }
 
                     MenuItem {
                         text: qsTr ("GitHub Project")
-                        onClicked: Global.openGitHubProject()
+                        onClicked: app.openGitHubProject()
                     }
 
                     MenuItem {
                         visible: enabled
                         enabled: AdsEnabled
                         text: qsTr ("Remove Ads")
-                        onClicked: Global.removeAds()
+                        onClicked: app.removeAds()
                         height: enabled ? implicitHeight : 0
                     }
                 }
@@ -177,13 +171,13 @@ Page {
         z: 0
         id: drawer
         iconTitle: AppName
-        iconBgColorLeft: Global.accentColor
-        iconBgColorRight: Global.secondaryAccentColor
+        iconBgColorLeft: app.accentColor
+        iconBgColorRight: app.secondaryAccentColor
         //Material.theme: Material.Light
         iconSource: "qrc:/icons/logo.svg"
         iconSubtitle: qsTr ("Version %1").arg (AppVersion)
         iconSubSubtitle: qsTr ("Developed by %1").arg (AppDeveloper)
-        height: AdsEnabled ? app.height - Global.bannerHeight - 1 : app.height
+        height: AdsEnabled ? app.height - app.bannerHeight - 1 : app.height
 
         //
         // Define the actions to take for each drawer item
@@ -314,144 +308,139 @@ Page {
     //
     // Page loader
     //
-    Loader {
-        asynchronous: true
+    StackView {
+        z: 2
+        id: stack
+        anchors.fill: parent
+        initialItem: accelerometer
 
         anchors {
             fill: parent
             topMargin: toolbar.height - 2
         }
 
-        StackView {
-            z: 2
-            id: stack
+        popExit: Transition {}
+        popEnter: Transition {}
+        pushExit: Transition {}
+        pushEnter: Transition {}
+
+        Sensors.Accelerometer {
+            id: accelerometer
+            visible: false
             anchors.fill: parent
-            initialItem: accelerometer
-            onCurrentItemChanged: finishedLoading()
+            anchors.centerIn: parent
+        }
 
-            popExit: Transition {}
-            popEnter: Transition {}
-            pushExit: Transition {}
-            pushEnter: Transition {}
+        Sensors.Altimeter {
+            id: altimeter
+            visible: false
+            anchors.fill: parent
+            anchors.centerIn: parent
+        }
 
-            Sensors.Accelerometer {
-                id: accelerometer
-                visible: false
-                anchors.fill: parent
-                anchors.centerIn: parent
-            }
+        Sensors.AmbientLight {
+            id: ambientLight
+            visible: false
+            anchors.fill: parent
+            anchors.centerIn: parent
+        }
 
-            Sensors.Altimeter {
-                id: altimeter
-                visible: false
-                anchors.fill: parent
-                anchors.centerIn: parent
-            }
+        Sensors.AmbientTemperature {
+            id: ambientTemperature
+            visible: false
+            anchors.fill: parent
+            anchors.centerIn: parent
+        }
 
-            Sensors.AmbientLight {
-                id: ambientLight
-                visible: false
-                anchors.fill: parent
-                anchors.centerIn: parent
-            }
+        Sensors.Clock {
+            id: clock
+            visible: false
+            anchors.fill: parent
+            anchors.centerIn: parent
+        }
 
-            Sensors.AmbientTemperature {
-                id: ambientTemperature
-                visible: false
-                anchors.fill: parent
-                anchors.centerIn: parent
-            }
+        Sensors.Compass {
+            id: compass
+            visible: false
+            anchors.fill: parent
+            anchors.centerIn: parent
+        }
 
-            Sensors.Clock {
-                id: clock
-                visible: false
-                anchors.fill: parent
-                anchors.centerIn: parent
-            }
+        Sensors.DistanceSensor {
+            id: distanceSensor
+            visible: false
+            anchors.fill: parent
+            anchors.centerIn: parent
+        }
 
-            Sensors.Compass {
-                id: compass
-                visible: false
-                anchors.fill: parent
-                anchors.centerIn: parent
-            }
+        Sensors.Gyroscope {
+            id: gyroscope
+            visible: false
+            anchors.fill: parent
+            anchors.centerIn: parent
+        }
 
-            Sensors.DistanceSensor {
-                id: distanceSensor
-                visible: false
-                anchors.fill: parent
-                anchors.centerIn: parent
-            }
+        Sensors.InfraredProximity {
+            id: infraredProximity
+            visible: false
+            anchors.fill: parent
+            anchors.centerIn: parent
+        }
 
-            Sensors.Gyroscope {
-                id: gyroscope
-                visible: false
-                anchors.fill: parent
-                anchors.centerIn: parent
-            }
+        Sensors.LightSensor {
+            id: lightSensor
+            visible: false
+            anchors.fill: parent
+            anchors.centerIn: parent
+        }
 
-            Sensors.InfraredProximity {
-                id: infraredProximity
-                visible: false
-                anchors.fill: parent
-                anchors.centerIn: parent
-            }
+        Sensors.Magnetometer {
+            id: magnetometer
+            visible: false
+            anchors.fill: parent
+            anchors.centerIn: parent
+        }
 
-            Sensors.LightSensor {
-                id: lightSensor
-                visible: false
-                anchors.fill: parent
-                anchors.centerIn: parent
-            }
+        Sensors.Orientation {
+            id: orientation
+            visible: false
+            anchors.fill: parent
+            anchors.centerIn: parent
+        }
 
-            Sensors.Magnetometer {
-                id: magnetometer
-                visible: false
-                anchors.fill: parent
-                anchors.centerIn: parent
-            }
+        Sensors.Pressure {
+            id: pressure
+            visible: false
+            anchors.fill: parent
+            anchors.centerIn: parent
+        }
 
-            Sensors.Orientation {
-                id: orientation
-                visible: false
-                anchors.fill: parent
-                anchors.centerIn: parent
-            }
+        Sensors.Proximity {
+            id: proximity
+            visible: false
+            anchors.fill: parent
+            anchors.centerIn: parent
+        }
 
-            Sensors.Pressure {
-                id: pressure
-                visible: false
-                anchors.fill: parent
-                anchors.centerIn: parent
-            }
+        Sensors.Rotation {
+            id: rotation
+            visible: false
+            anchors.fill: parent
+            anchors.centerIn: parent
+        }
 
-            Sensors.Proximity {
-                id: proximity
-                visible: false
-                anchors.fill: parent
-                anchors.centerIn: parent
-            }
+        Sensors.Taps {
+            id: taps
+            visible: false
+            anchors.fill: parent
+            anchors.centerIn: parent
+        }
 
-            Sensors.Rotation {
-                id: rotation
-                visible: false
-                anchors.fill: parent
-                anchors.centerIn: parent
-            }
-
-            Sensors.Taps {
-                id: taps
-                visible: false
-                anchors.fill: parent
-                anchors.centerIn: parent
-            }
-
-            Sensors.Tilt {
-                id: tilt
-                visible: false
-                anchors.fill: parent
-                anchors.centerIn: parent
-            }
+        Sensors.Tilt {
+            id: tilt
+            visible: false
+            anchors.fill: parent
+            anchors.centerIn: parent
         }
     }
 }

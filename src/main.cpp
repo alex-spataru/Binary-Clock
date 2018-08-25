@@ -21,6 +21,7 @@
  */
 
 #include <QtQml>
+#include <QScreen>
 #include <QQuickStyle>
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
@@ -44,6 +45,7 @@ int main (int argc, char** argv) {
 
     // Init. application
     QGuiApplication app (argc, argv);
+    qreal dpr = app.primaryScreen()->devicePixelRatio();
 
     // Set statusbar color on android
 #ifdef Q_OS_ANDROID
@@ -65,9 +67,10 @@ int main (int argc, char** argv) {
     QQmlApplicationEngine engine;
     engine.rootContext()->setContextProperty ("AppName", APP_NAME);
     engine.rootContext()->setContextProperty ("AppVersion", APP_VERSION);
-    engine.rootContext()->setContextProperty ("AppDeveloper", APP_DEVELOPER);
-    engine.rootContext()->setContextProperty ("AdBannerId", ADS_BANNER_ID);
     engine.rootContext()->setContextProperty ("AdsEnabled", ADS_ENABLED);
+    engine.rootContext()->setContextProperty ("AdBannerId", ADS_BANNER_ID);
+    engine.rootContext()->setContextProperty ("AppDeveloper", APP_DEVELOPER);
+    engine.rootContext()->setContextProperty ("DevicePixelRatio", dpr);
     engine.load (QUrl (QStringLiteral ("qrc:/qml/main.qml")));
 
     // QML error, quit application

@@ -1,6 +1,5 @@
 <RCC>
     <qresource prefix="/js">
-        <file>Global.js</file>
         <file>AnalogClock.js</file>
     </qresource>
 </RCC>

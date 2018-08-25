@@ -25,7 +25,7 @@
 #-------------------------------------------------------------------------------
 
 TEMPLATE = app
-TARGET = QClock
+TARGET = SensorMaster
 
 CONFIG += qtc_runnable
 CONFIG += resources_big
@@ -52,6 +52,9 @@ QT += quick
 QT += multimedia
 QT += quickcontrols2
 
+DEFINES += QTADMOB_QML
+
+
 #-------------------------------------------------------------------------------
 # Include libraries
 #-------------------------------------------------------------------------------
@@ -76,25 +79,29 @@ ios {
 }
 
 android {
+    DEFINES += ENABLE_ADS
+    DEFINES += MOBILE_RELEASE
+
     android:QT += androidextras gui-private
 
     DISTFILES += \
-        deploy/android/AndroidManifest.xml \
-        deploy/android/gradle/wrapper/gradle-wrapper.jar \
-        deploy/android/gradlew \
-        deploy/android/res/values/libs.xml \
-        deploy/android/build.gradle \
-        deploy/android/gradle/wrapper/gradle-wrapper.properties \
-        deploy/android/gradlew.bat \
-        deploy/android/AndroidManifest.xml \
-        deploy/android/gradle/wrapper/gradle-wrapper.jar \
-        deploy/android/gradlew \
-        deploy/android/res/values/libs.xml \
-        deploy/android/build.gradle \
-        deploy/android/gradle/wrapper/gradle-wrapper.properties \
-        deploy/android/gradlew.bat \
-        deploy/android/res/drawable/splash.xml \
-        deploy/android/res/values/apptheme.xml
+        $$PWD/deploy/android/AndroidManifest.xml \
+        $$PWD/deploy/android/gradle/wrapper/gradle-wrapper.jar \
+        $$PWD/deploy/android/gradlew \
+        $$PWD/deploy/android/res/values/libs.xml \
+        $$PWD/deploy/android/build.gradle \
+        $$PWD/deploy/android/gradle/wrapper/gradle-wrapper.properties \
+        $$PWD/deploy/android/gradlew.bat \
+        $$PWD/deploy/android/AndroidManifest.xml \
+        $$PWD/deploy/android/gradle/wrapper/gradle-wrapper.jar \
+        $$PWD/deploy/android/gradlew \
+        $$PWD/deploy/android/res/values/libs.xml \
+        $$PWD/deploy/android/build.gradle \
+        $$PWD/deploy/android/gradle/wrapper/gradle-wrapper.properties \
+        $$PWD/deploy/android/gradlew.bat \
+        $$PWD/deploy/android/res/drawable/splash.xml \
+        $$PWD/deploy/android/res/values/apptheme.xml \
+        $$PWD/deploy/android/src/org/dreamdev/QtAdMob/QtAdMobActivity.java
 
     ANDROID_PACKAGE_SOURCE_DIR = $$PWD/deploy/android
 }
@@ -107,9 +114,7 @@ RESOURCES += \
     $$PWD/assets/js/js.qrc \
     $$PWD/assets/qml/qml.qrc \
     $$PWD/assets/fonts/fonts.qrc \
-    $$PWD/assets/icons/icons.qrc \
-    assets/js/js.qrc \
-    assets/qml/qml.qrc
+    $$PWD/assets/icons/icons.qrc
 
 #-------------------------------------------------------------------------------
 # Import source code
@@ -118,28 +123,28 @@ RESOURCES += \
 SOURCES += $$PWD/src/main.cpp
 HEADERS += $$PWD/src/AppInfo.h
 
-DISTFILES += \
-    assets/js/AnalogClock.js \
-    assets/js/Global.js \
-    assets/qml/Components/DrawerItem.qml \
-    assets/qml/Components/PageDrawer.qml \
-    assets/qml/Sensors/Accelerometer.qml \
-    assets/qml/Sensors/Altimeter.qml \
-    assets/qml/Sensors/AmbientLight.qml \
-    assets/qml/Sensors/AmbientTemperature.qml \
-    assets/qml/Sensors/Clock.qml \
-    assets/qml/Sensors/Compass.qml \
-    assets/qml/Sensors/DistanceSensor.qml \
-    assets/qml/Sensors/Gyroscope.qml \
-    assets/qml/Sensors/InfraredProximity.qml \
-    assets/qml/Sensors/LightSensor.qml \
-    assets/qml/Sensors/Magnetometer.qml \
-    assets/qml/Sensors/Orientation.qml \
-    assets/qml/Sensors/Pressure.qml \
-    assets/qml/Sensors/Proximity.qml \
-    assets/qml/Sensors/Rotation.qml \
-    assets/qml/Sensors/Taps.qml \
-    assets/qml/Sensors/Tilt.qml \
-    assets/qml/Ads.qml \
-    assets/qml/main.qml \
-    assets/qml/UI.qml
+OTHER_FILES += \
+    $$PWD/assets/js/AnalogClock.js \
+    $$PWD/assets/qml/Components/DrawerItem.qml \
+    $$PWD/assets/qml/Components/PageDrawer.qml \
+    $$PWD/assets/qml/Sensors/Accelerometer.qml \
+    $$PWD/assets/qml/Sensors/Altimeter.qml \
+    $$PWD/assets/qml/Sensors/AmbientLight.qml \
+    $$PWD/assets/qml/Sensors/AmbientTemperature.qml \
+    $$PWD/assets/qml/Sensors/Clock.qml \
+    $$PWD/assets/qml/Sensors/Compass.qml \
+    $$PWD/assets/qml/Sensors/DistanceSensor.qml \
+    $$PWD/assets/qml/Sensors/Gyroscope.qml \
+    $$PWD/assets/qml/Sensors/InfraredProximity.qml \
+    $$PWD/assets/qml/Sensors/LightSensor.qml \
+    $$PWD/assets/qml/Sensors/Magnetometer.qml \
+    $$PWD/assets/qml/Sensors/Orientation.qml \
+    $$PWD/assets/qml/Sensors/Pressure.qml \
+    $$PWD/assets/qml/Sensors/Proximity.qml \
+    $$PWD/assets/qml/Sensors/Rotation.qml \
+    $$PWD/assets/qml/Sensors/Taps.qml \
+    $$PWD/assets/qml/Sensors/Tilt.qml \
+    $$PWD/assets/qml/Ads.qml \
+    $$PWD/assets/qml/main.qml \
+    $$PWD/assets/qml/UI.qml
+
