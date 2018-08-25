@@ -80,7 +80,7 @@ ios {
 
 android {
     DEFINES += ENABLE_ADS
-    DEFINES += MOBILE_RELEASE
+    #DEFINES += MOBILE_RELEASE
 
     android:QT += androidextras gui-private
 

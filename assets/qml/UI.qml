@@ -68,13 +68,6 @@ Page {
     }
 
     //
-    // Set background color
-    //
-    background: Rectangle {
-        color: app.backgroundColor
-    }
-
-    //
     // Toolbar
     //
     ToolBar {
@@ -170,14 +163,13 @@ Page {
     Components.PageDrawer {
         z: 0
         id: drawer
+        height: ui.height
         iconTitle: AppName
         iconBgColorLeft: app.accentColor
-        iconBgColorRight: app.secondaryAccentColor
-        //Material.theme: Material.Light
         iconSource: "qrc:/icons/logo.svg"
+        iconBgColorRight: app.secondaryAccentColor
         iconSubtitle: qsTr ("Version %1").arg (AppVersion)
         iconSubSubtitle: qsTr ("Developed by %1").arg (AppDeveloper)
-        height: AdsEnabled ? app.height - app.bannerHeight - 1 : app.height
 
         //
         // Define the actions to take for each drawer item

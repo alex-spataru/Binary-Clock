@@ -62,9 +62,9 @@ ApplicationWindow {
     // Theme options
     //
     color: backgroundColor
+    Material.accent: accentColor
     Material.theme: Material.Dark
     Universal.theme: Universal.Light
-    Material.accent: accentColor
     Material.background: backgroundColor
     Material.primary: lightBackgroundColor
 

@@ -16,11 +16,14 @@ ItemDelegate {
         anchors.fill: parent
         color: highlighted || mouseArea.containsMouse ? Material.primary : "transparent"
 
+        Behavior on color { NumberAnimation{} }
+
         MouseArea {
             id: mouseArea
-            hoverEnabled: true
             anchors.fill: parent
             preventStealing: false
+            enabled: !app.isMobile
+            hoverEnabled: !app.isMobile
             acceptedButtons: Qt.RightButton
         }
     }
