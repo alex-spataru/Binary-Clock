@@ -16,7 +16,7 @@ ItemDelegate {
         anchors.fill: parent
         color: highlighted || mouseArea.containsMouse ? Material.primary : "transparent"
 
-        Behavior on color { NumberAnimation{} }
+        Behavior on color { ColorAnimation{} }
 
         MouseArea {
             id: mouseArea
